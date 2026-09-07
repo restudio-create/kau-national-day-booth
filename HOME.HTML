@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>جامعة الملك عبدالعزيز | اليوم الوطني السعودي 96</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
+
+:root {
+    --primary: #004d25;
+    --primary-light: #006837;
+    --gold: #d4af37;
+    --gold-light: #f3e5ab;
+    --bg-dark: #02140b;
+    --glass: rgba(255, 255, 255, 0.07);
+    --glass-border: rgba(212, 175, 55, 0.3);
+}
+
+*{
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg-dark);
+    color: white;
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+    border: 0;
+    cursor: pointer;
+}
+
+/* =====================================================
+   SCREEN SYSTEM
+===================================================== */
+.screen {
+    display: none;
+    width: 100%;
+    min-height: 100vh;
+    opacity: 0;
+    transform: scale(0.98);
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.screen.active {
+    display: flex;
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* =====================================================
+   HEADER LOGO
+===================================================== */
+.brand-logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.kau-logo-img {
+    width: 180px;
+    height: auto;
+    max-width: 80vw;
+    filter: drop-shadow(0px 4px 12px rgba(0,0,0,0.6));
+}
+
+/* =====================================================
+   HOME SCREEN
+===================================================== */
+#home {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 20px;
+    background: 
+        radial-gradient(circle at 50% 15%, rgba(0, 104, 55, 0.45), transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.2), transparent 50%),
+        linear-gradient(135deg, #010a05, #021f11, #000804);
+    position: relative;
+    overflow: hidden;
+}
+
+.home-container {
+    width: min(650px, 95vw);
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.university-name {
+    font-size: clamp(22px, 4.5vw, 34px);
+    font-weight: 900;
+    color: var(--gold-light);
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-shadow: 0 2px 12px rgba(212, 175, 55, 0.4);
+}
+
+.creator-name {
+    font-size: 15px;
+    color: #a3c9b4;
+    margin-bottom: 20px;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.05);
+    display: inline-block;
+    padding: 6px 18px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.national-number {
+    display: inline-block;
+    padding: 8px 24px;
+    border-radius: 50px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    color: #e2f8ec;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.home-title {
+    font-size: clamp(32px, 7vw, 58px);
+    line-height: 1.25;
+    font-weight: 900;
+    margin: 0 0 15px;
+}
+
+.home-title .green {
+    color: #4ade80;
+    text-shadow: 0 0 30px rgba(74, 222, 128, 0.4);
+}
+
+.home-title .white {
+    color: white;
+}
+
+.home-subtitle {
+    margin: 0 auto 30px;
+    max-width: 520px;
+    color: #a3b8ad;
+    line-height: 1.8;
+    font-size: clamp(15px, 2.5vw, 18px);
+}
+
+.primary-button {
+    width: 100%;
+    max-width: 420px;
+    min-height: 65px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #d4af37, #f3e5ab);
+    color: #002b14;
+    font-size: 20px;
+    font-weight: 900;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.primary-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+}
+
+.secondary-button {
+    margin-top: 15px;
+    background: transparent;
+    color: #8da396;
+    padding: 12px 20px;
+    font-size: 15px;
+}
+
+/* =====================================================
+   PERMISSION SCREEN
+===================================================== */
+#permission {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px;
+    background: var(--bg-dark);
+}
+
+.permission-container {
+    width: min(500px, 95vw);
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    padding: 40px 30px;
+    border-radius: 30px;
+    backdrop-filter: blur(15px);
+}
+
+/* =====================================================
+   CAMERA SCREEN
+===================================================== */
+#camera {
+    flex-direction: column;
+    background: #000;
+}
+
+.camera-header {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background: rgba(2, 20, 11, 0.95);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.camera-brand {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gold-light);
+}
+
+.camera-counter {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    padding: 6px 16px;
+    border-radius: 50px;
+    color: #d1fae5;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.camera-area {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    overflow: hidden;
+}
+
+#video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1);
+}
+
+.camera-guide {
+    position: absolute;
+    width: min(75vw, 360px);
+    height: min(90vw, 460px);
+    border: 2px dashed rgba(212, 175, 55, 0.6);
+    border-radius: 50% / 45%;
+    pointer-events: none;
+}
+
+.countdown {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(100px, 20vw, 180px);
+    font-weight: 900;
+    color: var(--gold-light);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.countdown.show {
+    opacity: 1;
+    animation: countdownPop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes countdownPop {
+    0% { transform: translate(-50%, -50%) scale(0.2); opacity: 0; }
+    50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+.camera-footer {
+    min-height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(2, 20, 11, 0.95);
+}
+
+.capture-button {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: white;
+    border: 6px solid #004d25;
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.5);
+}
+
+/* =====================================================
+   PROCESSING SCREEN
+===================================================== */
+#processing {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--bg-dark);
+}
+
+.loader {
+    width: 70px;
+    height: 70px;
+    border: 5px solid rgba(212, 175, 55, 0.2);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* =====================================================
+   TEMPLATES SCREEN
+===================================================== */
+#templates {
+    flex-direction: column;
+    padding: 25px 15px;
+    background: radial-gradient(circle at top, #003318, #02140b);
+    overflow-y: auto;
+}
+
+.template-grid {
+    width: min(850px, 100%);
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.template-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 18px;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.template-card.selected {
+    border-color: var(--gold);
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.template-card img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* =====================================================
+   RESULT SCREEN
+===================================================== */
+#result {
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 15px;
+    background: radial-gradient(circle at top, #004d25, #011208);
+    overflow-y: auto;
+}
+
+.preview-container {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 12px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+}
+
+#resultCanvas {
+    display: block;
+    width: min(100%, 450px);
+    height: auto;
+    border-radius: 6px;
+}
+
+.result-actions {
+    width: min(100%, 450px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.action-button {
+    min-height: 55px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.download-button {
+    background: linear-gradient(135deg, #d4af37, #f3e5ab);
+    color: #002b14;
+}
+
+.retake-button {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* ERROR TOAST */
+.error-box {
+    position: fixed;
+    left: 20px; right: 20px; bottom: 25px;
+    background: rgba(10, 25, 18, 0.95);
+    border: 1px solid var(--gold);
+    border-radius: 15px;
+    padding: 15px 20px;
+    z-index: 100;
+    display: none;
+}
+.error-box.show { display: block; }
+</style>
+</head>
+<body>
+
+<!-- HOME SCREEN -->
+<section id="home" class="screen active">
+    <div class="home-container">
+        <!-- Official Logo SVG KAU -->
+        <div class="brand-logo-container">
+            <img class="kau-logo-img" src="https://upload.wikimedia.org/wikipedia/ar/4/4a/%D8%B4%D8%B9%D8%A7%D8%B1_%D8%AC%D8%A7%D9%85%D8%B9%D8%A9_%D8%A7%D9%84%D9%85%D9%84%D9%83_%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D8%B9%D8%B2%D9%8A%D8%B2.svg" alt="جامعة الملك عبدالعزيز">
+        </div>
+        
+        <div class="creator-name">إعداد: د. بدر هديبان الحربي</div>
+        <br>
+        <div class="national-number">🇸🇦 اليوم الوطني السعودي 96</div>
+        
+        <h1 class="home-title">
+            <span class="green">نحلم ونحقق</span>
+            <br>
+            <span class="white">نحتفل بالوطن 🇸🇦</span>
+        </h1>
+        
+        <div class="home-subtitle">
+            وثق لحظات الفخر والاعتزاز باليوم الوطني السعودي 96
+            <br>
+            التقاط صور تذكارية فاخرة بجودة عالية
+        </div>
+        
+        <button class="primary-button" onclick="startCamera()">📸 ابدأ جلسة التصوير</button>
+        <button class="secondary-button" onclick="showHelp()">كيف يعمل البوث؟</button>
+    </div>
+</section>
+
+<!-- PERMISSION SCREEN -->
+<section id="permission" class="screen">
+    <div class="permission-container">
+        <div style="font-size: 60px; margin-bottom: 15px;">📷</div>
+        <h2>السماح بالكاميرا</h2>
+        <p style="color: #a3b8ad; line-height: 1.6;">نحتاج للوصول إلى الكاميرا لالتقاط الصور التذكارية.<br>يرجى النقر على <strong>السماح (Allow)</strong>.</p>
+        <button class="primary-button" onclick="requestCamera()">السماح والبدء الآن</button>
+    </div>
+</section>
+
+<!-- CAMERA SCREEN -->
+<section id="camera" class="screen">
+    <div class="camera-header">
+        <div class="camera-brand">جامعة الملك عبدالعزيز</div>
+        <div class="camera-counter">صورة <span id="photoNumber">1</span> / 3</div>
+    </div>
+    <div class="camera-area">
+        <video id="video" autoplay playsinline muted></video>
+        <div class="camera-guide"></div>
+        <div id="countdown" class="countdown"></div>
+    </div>
+    <div class="camera-footer">
+        <button id="captureButton" class="capture-button" onclick="takePhoto()"></button>
+    </div>
+</section>
+
+<!-- PROCESSING SCREEN -->
+<section id="processing" class="screen">
+    <div>
+        <div class="loader"></div>
+        <h3 style="color: var(--gold-light);">جاري تجهيز الصورة التذكارية...</h3>
+    </div>
+</section>
+
+<!-- TEMPLATES SCREEN -->
+<section id="templates" class="screen">
+    <div style="text-align: center; margin-bottom: 20px;">
+        <h2 style="color: white; margin: 0;">اختر التصميم المناسب</h2>
+        <p style="color: #a3b8ad; font-size: 14px; margin-top: 5px;">إطارات رسمية خاصة بجامعة الملك عبدالعزيز</p>
+    </div>
+    <div class="template-grid">
+        <div class="template-card selected" onclick="selectTemplate(this, 'kau-official')">
+            <img id="templateKau">
+            <div style="color: white; font-weight: bold; margin-top: 8px;">🏛️ الشعار الرسمي</div>
+        </div>
+        <div class="template-card" onclick="selectTemplate(this, 'national-classic')">
+            <img id="templateClassic">
+            <div style="color: white; font-weight: bold; margin-top: 8px;">🇸🇦 راية الوطن</div>
+        </div>
+        <div class="template-card" onclick="selectTemplate(this, 'gold-royal')">
+            <img id="templateGold">
+            <div style="color: white; font-weight: bold; margin-top: 8px;">✨ الملكي الذهبي</div>
+        </div>
+        <div class="template-card" onclick="selectTemplate(this, 'simple-green')">
+            <img id="templateSimple">
+            <div style="color: white; font-weight: bold; margin-top: 8px;">🌿 الأخضر البسيط</div>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 20px;">
+        <button class="primary-button" onclick="createFinalPhoto()">إنشاء الصورة النهائيـة 📸</button>
+    </div>
+</section>
+
+<!-- RESULT SCREEN -->
+<section id="result" class="screen">
+    <div style="text-align: center; margin-bottom: 15px;">
+        <h2 style="color: var(--gold-light); margin: 0;">صورتك جاهزة! 🎉</h2>
+    </div>
+    <div class="preview-container">
+        <canvas id="resultCanvas" width="600" height="900"></canvas>
+    </div>
+    <div class="result-actions">
+        <button class="action-button download-button" onclick="downloadPhoto()">📥 حفظ الصورة</button>
+        <button class="action-button retake-button" onclick="restart()">↻ التقاط جديد</button>
+    </div>
+</section>
+
+<!-- ERROR TOAST BOX -->
+<div id="errorBox" class="error-box">
+    <strong id="errorTitle" style="color: var(--gold-light); display: block;">تنبيه</strong>
+    <p id="errorMessage" style="color: #cbd5e1; margin: 5px 0 0; font-size: 14px;"></p>
+</div>
+
+<script>
+const TOTAL_PHOTOS = 3;
+const COUNTDOWN_SECONDS = 3;
+const LOGO_URL = "https://upload.wikimedia.org/wikipedia/ar/4/4a/%D8%B4%D8%B9%D8%A7%D8%B1_%D8%AC%D8%A7%D9%85%D8%B9%D8%A9_%D8%A7%D9%84%D9%85%D9%84%D9%83_%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D8%B9%D8%B2%D9%8A%D8%B2.svg";
+
+let video = document.getElementById("video");
+let countdownElement = document.getElementById("countdown");
+let photoNumberElement = document.getElementById("photoNumber");
+let stream = null;
+let photos = [];
+let currentPhoto = 0;
+let selectedTemplate = "kau-official";
+let cameraReady = false;
+let loadedLogoImg = null;
+
+// Preload Logo SVG
+const logoImage = new Image();
+logoImage.crossOrigin = "anonymous";
+logoImage.onload = () => { loadedLogoImg = logoImage; };
+logoImage.src = LOGO_URL;
+
+function showScreen(id){
+    document.querySelectorAll(".screen").forEach(screen => screen.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+
+async function startCamera(){
+    if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
+        showError("الكاميرا غير مدعومة", "يرجى فتح الموقع باستخدام متصفح يدعم الكاميرا.");
+        return;
+    }
+    showScreen("permission");
+    await requestCamera();
+}
+
+async function requestCamera(){
+    try{
+        if(stream){
+            stream.getTracks().forEach(track => track.stop());
+        }
+        stream = await navigator.mediaDevices.getUserMedia({
+            video:{ facingMode:"user", width:{ideal:1280}, height:{ideal:720} },
+            audio:false
+        });
+        video.srcObject = stream;
+        await video.play();
+        cameraReady = true;
+        showScreen("camera");
+        updatePhotoCounter();
+    }catch(error){
+        console.error(error);
+        showError("تعذر الوصول للكاميرا", "يرجى منح الإذن للكاميرا ثم المحاولة.");
+    }
+}
+
+async function takePhoto(){
+    if(!cameraReady) return;
+    const button = document.getElementById("captureButton");
+    button.disabled = true;
+    await countdown();
+    const photo = captureFrame();
+    photos.push(photo);
+    currentPhoto++;
+    if(currentPhoto < TOTAL_PHOTOS){
+        updatePhotoCounter();
+        setTimeout(() => { button.disabled = false; }, 600);
+    }else{
+        if(stream){
+            stream.getTracks().forEach(track => track.stop());
+        }
+        showScreen("processing");
+        setTimeout(async () => {
+            await prepareTemplates();
+            showScreen("templates");
+        }, 800);
+    }
+}
+
+function countdown(){
+    return new Promise(resolve => {
+        let number = COUNTDOWN_SECONDS;
+        countdownElement.classList.add("show");
+        countdownElement.textContent = number;
+        const interval = setInterval(() => {
+            number--;
+            if(number <= 0){
+                clearInterval(interval);
+                countdownElement.textContent = "✨";
+                setTimeout(() => {
+                    countdownElement.classList.remove("show");
+                    resolve();
+                }, 300);
+            }else{
+                countdownElement.classList.remove("show");
+                void countdownElement.offsetWidth;
+                countdownElement.textContent = number;
+                countdownElement.classList.add("show");
+            }
+        }, 1000);
+    });
+}
+
+function captureFrame(){
+    const canvas = document.createElement("canvas");
+    const width = 900;
+    const height = 1200;
+    canvas.width = width;
+    canvas.height = height;
+    const ctx = canvas.getContext("2d");
+    
+    const videoRatio = video.videoWidth / video.videoHeight;
+    const targetRatio = width / height;
+    let sx = 0, sy = 0, sw = video.videoWidth, sh = video.videoHeight;
+    
+    if(videoRatio > targetRatio){
+        sw = video.videoHeight * targetRatio;
+        sx = (video.videoWidth - sw) / 2;
+    }else{
+        sh = video.videoWidth / targetRatio;
+        sy = (video.videoHeight - sh) / 2;
+    }
+    
+    ctx.save();
+    ctx.translate(width, 0);
+    ctx.scale(-1, 1);
+    ctx.drawImage(video, sx, sy, sw, sh, 0, 0, width, height);
+    ctx.restore();
+
+    return canvas.toDataURL("image/jpeg", 0.92);
+}
+
+function updatePhotoCounter(){
+    photoNumberElement.textContent = currentPhoto + 1;
+}
+
+function loadImage(src){
+    return new Promise(resolve => {
+        const img = new Image();
+        img.crossOrigin = "anonymous";
+        img.onload = () => resolve(img);
+        img.src = src;
+    });
+}
+
+async function prepareTemplates(){
+    const canvas = document.createElement("canvas");
+    canvas.width = 360;
+    canvas.height = 540;
+    const ctx = canvas.getContext("2d");
+    const images = [];
+    for(const photo of photos){
+        images.push(await loadImage(photo));
+    }
+    const templates = [
+        ["templateKau", "kau-official"],
+        ["templateClassic", "national-classic"],
+        ["templateGold", "gold-royal"],
+        ["templateSimple", "simple-green"]
+    ];
+    for(const [id, template] of templates){
+        drawTemplatePreview(ctx, images, template);
+        document.getElementById(id).src = canvas.toDataURL("image/jpeg", 0.85);
+    }
+}
+
+function drawTemplatePreview(ctx, images, template){
+    ctx.fillStyle = "#fff";
+    ctx.fillRect(0, 0, 360, 540);
+    const photoHeight = 140;
+    images.forEach((img, index) => {
+        drawCrop(ctx, img, 20, 15 + index * 155, 320, photoHeight);
+    });
+    
+    // Footer Section
+    ctx.fillStyle = "#004d25";
+    ctx.fillRect(0, 480, 360, 60);
+    
+    if(loadedLogoImg) {
+        ctx.drawImage(loadedLogoImg, 15, 488, 80, 44);
+    }
+    
+    ctx.fillStyle = "#f3e5ab";
+    ctx.textAlign = "right";
+    ctx.font = "bold 11px Tajawal";
+    ctx.fillText("جامعة الملك عبدالعزيز", 340, 502);
+    ctx.font = "9px Tajawal";
+    ctx.fillStyle = "#ffffff";
+    ctx.fillText("اليوم الوطني السعودي 96 | د. بدر هديبان الحربي", 340, 520);
+}
+
+function drawCrop(ctx, img, x, y, width, height){
+    const imageRatio = img.width / img.height;
+    const targetRatio = width / height;
+    let sx = 0, sy = 0, sw = img.width, sh = img.height;
+    if(imageRatio > targetRatio){
+        sw = img.height * targetRatio;
+        sx = (img.width - sw) / 2;
+    }else{
+        sh = img.width / targetRatio;
+        sy = (img.height - sh) / 2;
+    }
+    ctx.drawImage(img, sx, sy, sw, sh, x, y, width, height);
+}
+
+function selectTemplate(card, template){
+    document.querySelectorAll(".template-card").forEach(c => c.classList.remove("selected"));
+    card.classList.add("selected");
+    selectedTemplate = template;
+}
+
+async function createFinalPhoto(){
+    showScreen("processing");
+    setTimeout(async () => {
+        const canvas = document.getElementById("resultCanvas");
+        canvas.width = 600;
+        canvas.height = 900;
+        const ctx = canvas.getContext("2d");
+        const images = [];
+        for(const photo of photos){
+            images.push(await loadImage(photo));
+        }
+        drawFinalResult(ctx, images, selectedTemplate);
+        showScreen("result");
+    }, 500);
+}
+
+function drawFinalResult(ctx, images, template){
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, 600, 900);
+    
+    const photoHeight = 235;
+    images.forEach((img, index) => {
+        drawCrop(ctx, img, 35, 25 + index * 255, 530, photoHeight);
+    });
+    
+    // Footer Section
+    ctx.fillStyle = "#004d25";
+    ctx.fillRect(0, 790, 600, 110);
+    
+    // Render Logo Image in Canvas
+    if(loadedLogoImg) {
+        ctx.drawImage(loadedLogoImg, 25, 805, 140, 80);
+    }
+    
+    ctx.fillStyle = "#d4af37";
+    ctx.font = "bold 20px Tajawal";
+    ctx.textAlign = "right";
+    ctx.fillText("جامعة الملك عبدالعزيز", 570, 828);
+    
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 15px Tajawal";
+    ctx.fillText("اليوم الوطني السعودي 96 🇸🇦", 570, 855);
+    
+    ctx.font = "12px Tajawal";
+    ctx.fillStyle = "#a3c9b4";
+    ctx.fillText("إعداد: د. بدر هديبان الحربي", 570, 880);
+}
+
+/* =====================================================
+   ANTI-ERROR SAVE/DOWNLOAD IMAGE SYSTEM FOR MOBILE
+===================================================== */
+function downloadPhoto(){
+    const canvas = document.getElementById("resultCanvas");
+    
+    canvas.toBlob(async function(blob) {
+        if(!blob) {
+            showError("خطأ", "تعذر تحويل الصورة للحفظ.");
+            return;
+        }
+
+        const fileName = "KAU-National-Day-96.jpg";
+        const file = new File([blob], fileName, { type: "image/jpeg" });
+
+        // Web Share API (Mobile Browsers)
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+            try {
+                await navigator.share({
+                    files: [file],
+                    title: 'جامعة الملك عبدالعزيز - اليوم الوطني 96',
+                    text: 'صورة تذكارية بمناسبة اليوم الوطني السعودي 96'
+                });
+                return;
+            } catch (err) {
+                console.log("Share skipped or failed, falling back to direct download.");
+            }
+        }
+
+        // Direct Download Fallback
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        
+        setTimeout(() => URL.revokeObjectURL(url), 10000);
+    }, "image/jpeg", 0.95);
+}
+
+function restart(){
+    photos = [];
+    currentPhoto = 0;
+    cameraReady = false;
+    showScreen("home");
+}
+
+function showHelp(){
+    showError(
+        "كيف يعمل البوث؟",
+        "1. اضغط ابدأ جلسة التصوير\\n2. اسمح للجهة بالوصول للكاميرا\\n3. التقاط 3 صور متتالية\\n4. اختيار الإطار الرسمي المناسب\\n5. حفظ الصورة مباشرة على جهازك!"
+    );
+}
+
+function showError(title, message){
+    document.getElementById("errorTitle").textContent = title;
+    document.getElementById("errorMessage").innerHTML = message.replace(/\\n/g, '<br>');
+    const box = document.getElementById("errorBox");
+    box.classList.add("show");
+    setTimeout(() => { box.classList.remove("show"); }, 5000);
+}
+</script>
+</body>
+</html>
